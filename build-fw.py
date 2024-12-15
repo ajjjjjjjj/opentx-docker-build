@@ -18,7 +18,7 @@ print("")
 build_dir = "/build"
 source_dir = "/tmp/opentx"
 output_dir = "/opentx"
-output_filename = "opentx"
+output_filename = "openi6x"
 output_extension = ".bin"
 
 # Maximum size for the compiled firmware
@@ -260,7 +260,7 @@ if proc.returncode != 0:
 end = time.time()
 
 # Append the PCB type to the output file name
-output_filename = output_filename + "-" + board_name.lower()
+#output_filename = output_filename + "-" + board_name.lower()
 
 # Get the firmware version
 stampfile = "radio/src/stamp.h"
