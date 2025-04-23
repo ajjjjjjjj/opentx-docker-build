@@ -2,7 +2,7 @@
 
 Updated to support FlySky i6X and recent GCC version.
 
-A Docker container for building firmware [OpenTX](https://github.com/opentx/opentx), 
+A Docker container for building [OpenI6X](https://github.com/Openi6x/opentx) firmware. 
 
 The container contains a Debian Linux image pre-configured with the tools required to build OpenTX.  
 Running the container will compile the firmware from a local source tree and produce a compiled firmware image.
