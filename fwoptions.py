@@ -24,7 +24,6 @@ tts_languages = {
 
 options_i6x = {
     "heli": ("HELI", "NO", "YES"),
-    "ppmus": ("PPM_UNIT", "US", "PERCENT_PREC1"),
     "gvars": ("GVARS", "YES", "NO"),
     "lua": ("LUA", "NO", "NO_MODEL_SCRIPTS"),
     "nographics": ("GRAPHICS", "NO", "YES"),
@@ -36,7 +35,6 @@ options_i6x = {
 
 options_taranis_x9lite = {
     "noheli": ("HELI", "NO", "YES"),
-    "ppmus": ("PPM_UNIT", "US", "PERCENT_PREC1"),
     "lua": ("LUA", "YES", "NO_MODEL_SCRIPTS"),
     "nogvars": ("GVARS", "NO", "YES"),
     "autoupdate": ("AUTOUPDATE", "YES", None),

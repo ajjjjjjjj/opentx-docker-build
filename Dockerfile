@@ -1,21 +1,18 @@
-# A Debian image for compiling firmware of openI6X 1.9.0+
+# An image for compiling OpenI6X 1.9.0+
 FROM python:3.12.4-slim-bookworm
 
 # Update and install the required components
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y install wget zip bzip2 cmake build-essential git
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y install wget cmake build-essential git libclang-15-dev
+# zip bzip2
 # libgtest-dev libfox-1.6-dev libsdl1.2-dev qt5-default qttools5-dev-tools qtmultimedia5-dev qttools5-dev libqt5svg5-dev
 
 # Retrieve and install the required version of the ARM compiler
-RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi.tar.xz -P /tmp --progress=bar:force
-RUN tar -C /tmp -xf /tmp/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi.tar.xz
-RUN mv /tmp/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi /opt/gcc-arm-none-eabi
-RUN rm /tmp/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi.tar.xz
+RUN wget https://developer.arm.com/-/media/Files/downloads/gnu/15.2.rel1/binrel/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi.tar.xz -P /tmp --progress=bar:force
+RUN tar -C /tmp -xf /tmp/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi.tar.xz
+RUN mv /tmp/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi /opt/gcc-arm-none-eabi  && rm /tmp/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi.tar.xz
 #RUN apt-get update -y
-RUN wget https://bootstrap.pypa.io/get-pip.py
-RUN python3 get-pip.py
-RUN pip3 install pillow libclang-py3
+RUN wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && pip3 install pillow libclang-py3
 # pyqt5
-RUN apt-get install -y libclang-15-dev
 
 # Declare the mount point
 VOLUME ["/opentx"]

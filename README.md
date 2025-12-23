@@ -1,4 +1,4 @@
-# opentx-docker-build
+# opentx-docker-i6x
 
 Updated to support FlySky i6X and recent GCC version.
 
@@ -34,7 +34,7 @@ You have to specify a board name as first env variable (BOARD_NAME), it is lower
 
 The compiled firmware image will be placed in the root of the source directory when the build has finished.  
 
-The default output name is `opentx-boardname-2.3.3ver.bin` but this will vary depending on any optional flags that may have been passed.
+The default output name is `openi6x-<version>-<lang>.bin` but this will vary depending on any optional flags that may have been passed.
 
 ## Changing the Build Flags
 Build flags can be changed by passing a switch to the Docker container when it is run.
@@ -43,6 +43,6 @@ Default flags will be replaced by the new value, additional flags will be append
 
 ### Examples
 
-1. Build from the source in `/home/vitas/opentx.git` and disable `HELI`:
+1. Build from the source in `/home/ajjjjjjjj/opentx.git` and disable `HELI`:
 
-   `docker run --rm -it -v "/home/vitas/opentx.git/:/opentx" -e "BOARD_NAME=i6x" -e "CMAKE_FLAGS=HELI=NO" ajjjjjjjj/opentx-docker-i6x`
+   `docker run --rm -it -v "/home/ajjjjjjjj/opentx.git/:/opentx" -e "BOARD_NAME=i6x" -e "CMAKE_FLAGS=HELI=NO" ajjjjjjjj/opentx-docker-i6x`

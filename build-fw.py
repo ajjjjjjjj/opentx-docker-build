@@ -30,10 +30,9 @@ generic_default_options = OrderedDict([
     ("GVARS", "YES"),
     ("HELI", "YES"),
     ("LUA", "NO"),
-    ("LUA_COMPILER", "YES"),
-    ("MULTIMODULE", "YES"),
+    ("LUA_COMPILER", "NO"),
+    ("MULTIMODULE", "NO"),
     ("PPM_CENTER_ADJUSTABLE", "YES"),
-    ("PPM_UNIT", "US"),
     ("RAS", "YES"),
     ("DISABLE_COMPANION", "YES"),
     ("CMAKE_BUILD_TYPE", "Release"),
@@ -67,100 +66,10 @@ if "CMAKE_FLAGS" in os.environ:
 else:
     print ("No additional CMAKE flags specified.")
 
-if board_name == "sky9x":
-    extra_options["PCB"] = "SKY9X"
-    firmware_options = options_sky9x
-    maxsize = 65536 * 4
-elif board_name == "9xrpro":
-    extra_options["PCB"] = "9XRPRO"
-    extra_options["SDCARD"] = "YES"
-    firmware_options = options_sky9x
-    maxsize = 65536 * 4
-elif board_name == "ar9x":
-    extra_options["PCB"] = "AR9X"
-    extra_options["SDCARD"] = "YES"
-    firmware_options = options_ar9x
-    maxsize = 65536 * 4
-elif board_name == "x9lite":
-    extra_options["PCB"] = "X9LITE"
-    firmware_options = options_taranis_x9lite
-    maxsize = 65536 * 8
-elif board_name == "x9lites":
-    extra_options["PCB"] = "X9LITES"
-    firmware_options = options_taranis_x9lite
-    maxsize = 65536 * 8
-elif board_name == "x7":
-    extra_options["PCB"] = "X7"
-    extra_options["PCBREV"] = "X7"
-    firmware_options = options_taranis_x9dp
-    maxsize = 65536 * 8
-elif board_name == "x7access":
-    extra_options["PCB"] = "X7"
-    extra_options["PCBREV"] = "ACCESS"
-    firmware_options = options_taranis_x9dp
-    maxsize = 65536 * 8
-elif board_name == "xlite":
-    extra_options["PCB"] = "XLITE"
-    firmware_options = options_taranis_xlite
-    maxsize = 65536 * 8
-elif board_name == "xlites":
-    extra_options["PCB"] = "XLITES"
-    firmware_options = options_taranis_xlites
-    maxsize = 65536 * 8
-elif board_name == "x9d":
-    extra_options["PCB"] = "X9D"
-    firmware_options = options_taranis_x9d
-    maxsize = 65536 * 8
-elif board_name == "x9d+":
-    extra_options["PCB"] = "X9D+"
-    firmware_options = options_taranis_x9dp
-    maxsize = 65536 * 8
-elif board_name == "x9d+2019":
-    extra_options["PCB"] = "X9D+"
-    extra_options["PCBREV"] = "2019"
-    firmware_options = options_taranis_x9dp
-    maxsize = 65536 * 8
-elif board_name == "x9e":
-    extra_options["PCB"] = "X9E"
-    firmware_options = options_taranis_x9e
-    maxsize = 65536 * 8
-elif board_name == "x10":
-    extra_options["PCB"] = "X10"
-    firmware_options = options_horus_x10
-    maxsize = 2 * 1024 * 1024
-elif board_name == "x10express":
-    extra_options["PCB"] = "X10"
-    extra_options["PCBREV"] = "EXPRESS"
-    firmware_options = options_horus_x10
-    maxsize = 2 * 1024 * 1024
-elif board_name == "x12s":
-    extra_options["PCB"] = "X12S"
-    firmware_options = options_horus_x12s
-    maxsize = 2 * 1024 * 1024
-elif board_name == "t12":
-    extra_options["PCB"] = "X7"
-    extra_options["PCBREV"] = "T12"
-    firmware_options = options_jumper_t12
-    maxsize = 65536 * 8
-elif board_name == "t16":
-    extra_options["PCB"] = "X10"
-    extra_options["PCBREV"] = "T16"
-    firmware_options = options_jumper_t16
-    maxsize = 2 * 1024 * 1024
-elif board_name == "tx16s":
-    extra_options["PCB"] = "X10"
-    extra_options["PCBREV"] = "TX16S"
-    firmware_options = options_radiomaster_tx16s
-    maxsize = 2 * 1024 * 1024
-elif board_name == "t18":
-    extra_options["PCB"] = "X10"
-    extra_options["PCBREV"] = "T18"
-    firmware_options = options_jumper_t18
-    maxsize = 2 * 1024 * 1024
-elif board_name == "i6x":
+if board_name == "i6x":
     extra_options["PCB"] = "I6X"
-    extra_options["LUA_COMPILER"] = "NO"
-    extra_options["MULTIMODULE"] = "NO"
+    firmware_options = generic_default_options
+    maxsize = 65536 * 2
     firmware_options = generic_default_options
     maxsize = 65536 * 2
 else:
