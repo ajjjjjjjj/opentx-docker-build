@@ -1,8 +1,15 @@
 # An image for compiling OpenI6X 1.9.0+
-FROM python:3.12.4-slim-bookworm
+FROM python:3.14-slim
 
 # Update and install the required components
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y install wget cmake build-essential git libclang-15-dev
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y update \
+    && apt-get -y --no-install-recommends install \
+        wget \
+        cmake \
+        build-essential  \
+        git \
+        libclang-19-dev \
+    && rm -rf /var/lib/apt/lists/*
 # zip bzip2
 # libgtest-dev libfox-1.6-dev libsdl1.2-dev qt5-default qttools5-dev-tools qtmultimedia5-dev qttools5-dev libqt5svg5-dev
 
